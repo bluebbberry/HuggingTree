@@ -1,1 +1,3 @@
-![new-tree-image](https://github.com/user-attachments/assets/55947d11-254a-45cc-a31d-f9cc400a5c1b)
+# Hugging Tree
+
+![huggingtree](https://github.com/user-attachments/assets/d06db732-5e4c-4f7e-825c-4128645137c2)
