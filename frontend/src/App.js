@@ -4,6 +4,7 @@ import axios from "axios";
 function App() {
   const [file, setFile] = useState(null);
   const [uploadedFileUrl, setUploadedFileUrl] = useState(null);
+  const [uploading, setUploading] = useState(false);
 
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
@@ -15,6 +16,7 @@ function App() {
       return;
     }
 
+    setUploading(true);
     const formData = new FormData();
     formData.append("file", file);
 
@@ -24,26 +26,36 @@ function App() {
       });
 
       setUploadedFileUrl(response.data.file_url);
-      alert("File uploaded successfully!");
+      setFile(null);
     } catch (error) {
       console.error("Upload failed:", error);
       alert("Upload failed, please try again.");
+    } finally {
+      setUploading(false);
     }
   };
 
   return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-6">
-        <h1 className="text-3xl font-bold mb-6">Hugging Tree 🤗🌳</h1>
+      <div className="container">
+        <h1 className="title">🤗🌳 Hugging Tree</h1>
 
-        <input type="file" onChange={handleFileChange} className="mb-4" />
-        <button onClick={handleUpload} className="bg-green-500 text-white px-4 py-2 rounded">
-          Upload
-        </button>
+        <div className="upload-box">
+          <label className="upload-label">
+            <div className="upload-icon">📂</div>
+            <span>{file ? file.name : "Click to select a file"}</span>
+            <input type="file" onChange={handleFileChange} className="hidden-input" />
+          </label>
+
+          <button onClick={handleUpload} disabled={!file || uploading} className="upload-button">
+            {uploading ? "Uploading..." : "Upload"}
+          </button>
+        </div>
 
         {uploadedFileUrl && (
-            <div className="mt-6">
-              <h2 className="text-xl font-semibold">Uploaded File:</h2>
-              <a href={uploadedFileUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 mt-2 block">
+            <div className="uploaded-box">
+              <div className="checkmark">✅</div>
+              <h2>File Uploaded Successfully!</h2>
+              <a href={uploadedFileUrl} target="_blank" rel="noopener noreferrer">
                 View File
               </a>
             </div>

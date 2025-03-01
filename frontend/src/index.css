@@ -11,3 +11,99 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+body {
+  background: linear-gradient(to bottom, #e8f5e9, #f1f8f4);
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #2e7d32;
+  margin-bottom: 20px;
+}
+
+.upload-box {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  text-align: center;
+}
+
+.upload-label {
+  display: block;
+  padding: 20px;
+  border: 2px dashed #4caf50;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #4caf50;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.upload-label:hover {
+  background: #e8f5e9;
+}
+
+.hidden-input {
+  display: none;
+}
+
+.upload-button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  background: #4caf50;
+  color: white;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.upload-button:hover {
+  background: #388e3c;
+}
+
+.upload-button:disabled {
+  background: gray;
+  cursor: not-allowed;
+}
+
+.uploaded-box {
+  margin-top: 20px;
+  padding: 15px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.uploaded-box h2 {
+  color: #2e7d32;
+}
+
+.uploaded-box a {
+  display: block;
+  margin-top: 5px;
+  color: #1b5e20;
+  text-decoration: underline;
+}
+
+.checkmark {
+  font-size: 2rem;
+  color: #4caf50;
+}
+
